@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="admine.css">
+<title>Student Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="date"], select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #5359f5;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .btn:hover {
+        background-color: #6a39ff;
+        color: white;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #f8f4f4de;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 8px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #fef0f0;
+        padding: 8px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="orange brown minimalist school logo (2).png" alt=""></div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="">Events</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+                <li>
+                    <a href="ilyas.html">Log out</a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    <br>
+    <br>
+<div class="container">
+    <h1>Student Management</h1>
+    <button class="btn" id="addStudentBtn">Add New Student</button>
+    <button class="btn" id="viewOrdersBtn">View Orders</button>
+</div>
+
+
+<div id="addStudentForm" class="container" style="display: none;">
+    <h2>Add New Student</h2>
+    <form action="">
+        <div class="form-group">
+            <label   for="fullName">Full Name:</label>
+            <input name="full_name" id="student_id" type="text" id="fullName" name="fullName" required>
+        </div>
+      <form action="">
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input  type="date" id="dateOfBirth" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+               
+                
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+    </form>
+  </form>
+    <button class="btn" id="addStudentFormSubmit">Add Student</button>
+</div>
+
+
+<table id="ordersTable" style="display: none;">
+    <thead>
+        <tr>
+            <th>Order Number</th>
+            <th>Order Date</th>
+            <th>Product</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Order data will be added here -->
+    </tbody>
+</table>
+
+<div id="studentList" class="container" style="display: none;">
+    <h2>قائمة الطلاب</h2>
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th> name</th>
+                <th>Date</th>
+                <th>class</th>
+                <th>password</th> 
+            </tr>
+        </thead>
+        <tbody>
+            
+        
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+var addStudentForm = document.getElementById("addStudentForm");
+var studentsTable = document.getElementById("studentsTable");
+var studentList = document.getElementById("studentList");
+
+// Function to add a new student to the table
+function addStudentToTable(fullName, dateOfBirth, department, password) { // تم تعديل الدالة لتشمل كلمة المرور
+    var newRow = studentsTable.insertRow(-1);
+    var fullNameCell = newRow.insertCell(0);
+    var dateOfBirthCell = newRow.insertCell(1);
+    var departmentCell = newRow.insertCell(2);
+    var passwordCell = newRow.insertCell(3); // تمت إضافة هذا الحقل
+
+    fullNameCell.textContent = fullName;
+    dateOfBirthCell.textContent = dateOfBirth;
+    departmentCell.textContent = department;
+    passwordCell.textContent = password; // تمت إضافة هذا السطر لعرض كلمة المرور
+}
+
+// Show add student form and hide student list when clicking "Add New Student" button
+addStudentBtn.onclick = function() {
+    addStudentForm.style.display = "block";
+    studentList.style.display = "none";
+}
+
+// Function to handle form submission and add student to table
+document.getElementById("addStudentFormSubmit").onclick = function() {
+    var fullName = document.getElementById("fullName").value;
+    var dateOfBirth = document.getElementById("dateOfBirth").value;
+    var department = document.getElementById("department").value;
+    var password = document.getElementById("password").value; // تمت إضافة هذا السطر للحصول على كلمة المرور
+
+    addStudentToTable(fullName, dateOfBirth, department, password); // تم تمرير كلمة المرور إلى الدالة
+
+    // Reset form fields
+    document.getElementById("fullName").value = "";
+    document.getElementById("dateOfBirth").value = "";
+    document.getElementById("department").value = "";
+    document.getElementById("password").value = ""; // تمت إضافة هذا السطر لإعادة تعيين حقل كلمة المرور
+
+    // Show student list and hide add student form
+    studentList.style.display = "block";
+    addStudentForm.style.display = "none";
+}
+</script>
+
+</body>
+</html>

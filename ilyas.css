@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "futura md bt";
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    height: 100vh;
+    width: 75%;
+   min-width: 100%;
+   max-height: 50%;
+
+}
+.logo img{
+width: 130px;
+padding: 20px 10px;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+header .logo {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+header nav ul {
+    display: flex;
+}
+header nav ul li a {
+    display: inline-block;
+    color: white;
+    padding: 5px 0;
+    margin: 0 10px;
+    border: none;
+    text-transform: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+   
+    
+}
+header nav ul li a:hover{
+    background-color: white;
+    border: none;
+    border-radius: 29px;
+    color: blue;
+    margin: 5px;
+    padding: 10px 15px;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: white;
+}
+@media only screen and (max-width: 900px) {
+    header {
+        padding: 0 30px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .hamburger {
+        display: block;
+    }
+    header nav {
+        position: absolute;
+        width: 100%;
+        left: -100%;
+        top: 70px;
+        width: 100%;
+        background:rgb(61, 61, 190);
+        color:white;
+        padding: 30px;
+        transition: 0.3s;
+    }
+    
+    header #nav_check:checked ~ nav {
+        left: 0;
+    }
+    header nav ul {
+        display: block;
+    }
+    header nav ul li a {
+        margin: 5px 0;
+    }
+}
+section{
+    padding: 15px 8%;
+    background-color: rgb(74, 74, 255);
+    max-width: 100%;
+    
+}
+.Home{
+    
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    padding-top: 0%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 4px;
+    padding-bottom: 120px;
+
+}
+.home-text h1{
+    color: white;
+font-size: 55px;
+font-weight: bold;
+width: 680px;
+font-family: cursive;
+padding-top: 10px;
+margin-top: 2px;
+padding-bottom: 1px;
+margin-bottom: 0px;
+}
+.home-text p{
+    color: white;  
+font-size: 23px;
+font-style: normal;
+
+font-weight: 500px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 100%;
+padding-top: 3px;
+margin-bottom: 10px;
+margin-top: 0px;
+
+
+}
+.home-text{
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.imga img{
+    display:flex ;
+    justify-content: end;
+    align-items: end;
+    height: 622px;
+    margin-left: 20%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: -17px;
+}
+.han{
+    background-color: white;
+    border-radius: 29px;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 5px 15px;
+    margin-top: 25px;
+  margin-bottom: 950px;
+
+}
+.han:hover{
+    border: green solid;
+}
+.slider {
+    position: relative;
+    max-width: 85%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color:transparent;
+  }
+  
+  .slides {
+    display: flex;
+  }
+  
+  .image {
+    min-width: 100%;
+    overflow: hidden;
+  }
+  
+  .image img {
+    width: 100%;
+    height: 95vh;
+
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2;
+    width: 55px;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+.hala{
+    background-color:#EEF5FF;
+    max-height: 100vh;
+
+}
+.event{
+    padding: 3px;
+    border-bottom: 4px solid blue;
+    margin: 14px;
+    width: 800px;
+    margin-top:25px;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 30px;
+    max-width: 100%;
+}
+.cont{
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 800px;
+    max-width: 100%;
+    
+   
+    
+    
+}
+.bahmed {
+    display: flex; /* استخدام الفليكس بوكس لترتيب العناصر */
+    border-radius: 29px;
+    background:linear-gradient(rgb(188, 176, 244),rgb(248, 251, 252),rgb(255, 255, 255),rgb(255, 255, 255),rgb(190, 166, 245));
+    padding-left: 4%;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 25px;
+    max-width: 100%;
+}
+
+.pa {
+    width: 50%; /* تحديد عرض العنصر */
+    margin-right: 20px; /* إضافة مسافة من اليمين */
+    
+}
+
+.pi {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+    align-items: flex-end; /* توسيط العناصر على اليمين */
+   padding-left:90px;
+   padding-top: 140px;
+   max-width: 100%;
+   margin-top: 70px;
+   
+   
+}
+
+.pi img {
+    width: 300px; /* تحديد حجم الصورة */
+    padding-top: 0px;
+    margin-top: 5px;
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: 29px;
+    border: 3px;
+    min-width: 1%;
+}
+.contact{
+
+    background-color: rgb(74, 74, 255);
+    border-radius: 33px;
+    padding: 15px 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 25px;
+    max-width: 100%;
+}
+.text1{
+    font-family: cursive;
+    font-size:26px;
+    color: white;
+    margin-top: 30px;
+    font-weight: bold;
+}
+.scrolled {
+    background-color: white !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+
+
+
